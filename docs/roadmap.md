@@ -3,7 +3,8 @@
 - [x] Preserve original APK locally and exclude binaries from version control.
 - [x] Add repeatable archive inventory and hashing.
 - [x] Add a runnable development service and automated checks.
-- [ ] Recover IL2CPP type/method structure and locate bootstrap/login call sites.
+- [x] Recover IL2CPP type/method structure and locate bootstrap/login call sites.
+- [x] Map declared RMI message IDs and confirm the native version-2 login call.
 - [ ] Identify server configuration and required remote content.
 - [ ] Run a controlled Android test and record startup/network behavior locally.
 - [ ] Document first request bytes, framing, message IDs, and response schema.

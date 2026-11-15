@@ -42,6 +42,9 @@ and traffic captures remain outside Git. Put additional research material under
 | `local/` | Private clients, dumps, captures, ignored by Git |
 
 See [research findings](docs/research.md) and the [implementation plan](docs/roadmap.md).
+The [client protocol notes](docs/client-protocol.md) record recovered bootstrap
+endpoints and message IDs. Follow the [research workflow](docs/research-workflow.md)
+to reproduce the local dump, protocol map, and native instruction inspection.
 
 ## Project boundaries
 
