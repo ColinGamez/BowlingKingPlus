@@ -25,10 +25,6 @@ is not confirmed. There is no release date yet.
 Watch this repository for updates, or check back here for release news.
 Have a question or suggestion? [Open an issue](https://github.com/ColinGamez/BowlingKingPlus/issues).
 
-## Want to help develop it?
-
-See the [development guide](docs/development.md) and [roadmap](docs/roadmap.md).
-
 ---
 
 BowlingKingPlus is a fan project, unaffiliated with Miniclip or the original
