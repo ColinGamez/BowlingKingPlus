@@ -1,0 +1,19 @@
+# Original clients and extracted proprietary content stay local.
+*.apk
+*.xapk
+*.apks
+*.ipa
+*.obb
+*.pcap
+*.pcapng
+local/
+artifacts/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.log
