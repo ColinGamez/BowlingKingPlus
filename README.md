@@ -1,54 +1,35 @@
 # BowlingKingPlus
 
-Community research and replacement-server project for Bowling King.
+An unofficial revival project working to bring **Bowling King** back to mobile.
 
-**Status:** initial research scaffold. The development HTTP server is operational;
-original game login, ProudNet transport, and multiplayer are not implemented.
-No compatibility with the original client is claimed yet.
+## Can I play yet?
 
-## Quick start
+**Not yet!** The revival is in early development. There is no playable release
+or public server available right now.
 
-Requires Python 3.12 or newer. No third-party packages are required.
+The goal is to let you download the game, connect, and bowl again. When a playable
+version is ready, this page will have the download link and installation steps.
 
-```powershell
-python -m unittest discover -s tests -v
-python -m server
-```
+## Downloads
 
-Visit <http://127.0.0.1:8080/health>. The server binds to loopback by default.
-Use `python -m server --host 0.0.0.0 --port 8080` when testing on a trusted LAN.
-This is a development service, not a production deployment.
+No downloads are available yet. Future playable builds will be posted on the
+[Releases page](https://github.com/ColinGamez/BowlingKingPlus/releases).
 
-## Inspect a local client
+## Android and iOS
 
-```powershell
-python tools/inspect_apk.py "Bowling+King_1.50.19_APKPure.apk"
-```
+Android is the first development target. iOS support is being considered, but
+is not confirmed. There is no release date yet.
 
-This reads the archive without running or modifying it and writes a JSON inventory
-to `artifacts/apk-report.json`. Reports, original apps, extracted code/assets,
-and traffic captures remain outside Git. Put additional research material under
-`local/`. Do not commit account credentials or live session tokens.
+## Follow the revival
 
-## Layout
+Watch this repository for updates, or check back here for release news.
+Have a question or suggestion? [Open an issue](https://github.com/ColinGamez/BowlingKingPlus/issues).
 
-| Path | Purpose |
-| --- | --- |
-| `server/` | Development HTTP service; future protocol adapters belong here |
-| `tools/` | Repeatable client inspection tools |
-| `tests/` | Server behavior and inspection checks |
-| `docs/` | Evidence, architecture, and research plan |
-| `artifacts/` | Generated reports, ignored by Git |
-| `local/` | Private clients, dumps, captures, ignored by Git |
+## Want to help develop it?
 
-See [research findings](docs/research.md) and the [implementation plan](docs/roadmap.md).
-The [client protocol notes](docs/client-protocol.md) record recovered bootstrap
-endpoints and message IDs. Follow the [research workflow](docs/research-workflow.md)
-to reproduce the local dump, protocol map, and native instruction inspection.
+See the [development guide](docs/development.md) and [roadmap](docs/roadmap.md).
 
-## Project boundaries
+---
 
-An independent, unofficial project, unaffiliated with Miniclip or the original
-developers. Original game binaries and assets are not distributed here. This
-repository does not currently grant a project license; choose one before accepting
-external contributions that require redistribution terms.
+BowlingKingPlus is a fan project, unaffiliated with Miniclip or the original
+developers. Bowling King belongs to its respective owners.
