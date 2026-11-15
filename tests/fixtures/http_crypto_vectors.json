@@ -1,0 +1,15 @@
+{
+  "source": "Independent Windows .NET RijndaelManaged output, CBC/PKCS7, UTF-8, recovered client key/IV. Setting KeySize=256 then assigning the 16-byte Key yields effective KeySize=128.",
+  "vectors": [
+    {
+      "profile": "version",
+      "plaintext": "{\"UID\":\"local-test\",\"clientbundleversion\":\"v1.50.19\"}",
+      "ciphertext": "UDYR619/FazDkAw3Be1ldpdottTjp/ycSMlzX2MEmeBbMZS3qWn/+IpcTMj4Lz4rgm4hldDq4NqZ5Sq/32qysQ=="
+    },
+    {
+      "profile": "account",
+      "plaintext": "{\"UID\":\"local-test\",\"clientbundleversion\":\"v1.50.19\"}",
+      "ciphertext": "zYIWybFbfmExOc+m3ZrG7pdNqbMZypNgIld4ev4w/IECSvpAg9WEBeCjJBoDaEURFqTp7jdjeMR5EBsZe/5TuA=="
+    }
+  ]
+}

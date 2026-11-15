@@ -3,10 +3,19 @@
 The initial implementation has two independent pieces:
 
 1. A read-only APK inventory tool that produces reproducible local evidence.
-2. A small HTTP development service for health and implementation status.
+2. An HTTP development service with health, implementation status, and an
+   encrypted version-check bootstrap handler.
 
-The HTTP routes are project tooling, not recovered Bowling King endpoints.
-Unknown requests return 404 instead of invented game responses.
+Health and status are project tooling. `POST /VersionCheck.aspx` implements the
+statically recovered MSG/encrypted-JSON transport and a minimal bootstrap response.
+The account codec is implemented, but account routes and ProudNet remain pending.
+Unknown requests return 404. Actual Android startup validation is still pending.
+
+Install runtime dependencies with `python -m pip install -r requirements.txt`.
+Run with `python -m server`. For LAN testing, use `--host 0.0.0.0 --login-url
+http://<your-lan-ip>:8080` so the advertised login URL is reachable by the device.
+The default advertised URL points to loopback for local testing. This does not
+redirect an unmodified APK, configure HTTPS, or implement login.
 
 Once the client protocol is mapped, add a transport adapter separately from
 account, profile, matchmaking, and match-state logic. Keep binary decoding and

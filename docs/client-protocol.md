@@ -87,3 +87,38 @@ reporting. They do not establish whether server simulation or validation is need
 4. Validate the findings against a controlled Android startup capture.
 
 No original service was contacted and no APK was patched during this pass.
+
+## HTTP transport implementation
+
+Native tracing of `BKApi.RequestNow` (`0x78CD3C`) shows JSON serialization,
+encryption, and form submission under the name `MSG`. API type zero is
+`VersionCheck` and uses `PnixCommon.VersionEncryptor`; other API types use
+`BowlingKingWebCommon.BKPacketEncryptor`. `CallbackLoadComplete` (`0x78D590`)
+selects the corresponding response decryptor. The response is Base64 ciphertext
+in the body, not a JSON object containing MSG.
+
+Both profiles construct Rijndael with a 128-bit block, CBC mode and PKCS7 padding.
+They assign a 16-byte UTF-8 key after initially setting KeySize=256; the assigned
+key makes the effective key size 128 bits. `server/codec.py` records the embedded
+protocol values. Independent .NET RijndaelManaged vectors verify the Python
+implementation, including this key-size behavior. The Python cipher API is
+documented in [cryptography's symmetric encryption reference](https://cryptography.io/en/latest/hazmat/primitives/symmetric-encryption/).
+
+The IV data was found in metadata's default-value region and verified against
+the SHA-256-named private implementation fields referenced by InitializeArray:
+
+| Profile | Metadata byte offset | IV field SHA-256 |
+| --- | --- | --- |
+| Version | `0x4012F9` | `5100BEDD4DD67CE0EB50FCDE45FFDDA1DE98D48C212480901228F7B1342C6B4E` |
+| Account | `0x401A65` | `9FDFAC29B091CEF590F1D2C7927A6B18D9D3E1588E0AF801CC1FED3D9279DF9C` |
+
+`BKApi.Response` (`0x78D200`) reads a JSON object, unboxes `Result` as a boolean,
+reads optional `ERR` as an integer, and passes the same decrypted JSON to the
+per-operation callback. The version callback converts `loginserverurl` to a
+string and `resourceversion` and `servertype` to integers. It requests resource
+patch files only when the advertised version exceeds the stored version.
+
+The current development bootstrap advertises Dev server type 0, resource version
+0, and the configured login API URL. This is a test choice to offer no new patch,
+not a recovered production configuration. Its encrypted HTTP exchange passes
+local tests; bypassing actual client startup has not been demonstrated.

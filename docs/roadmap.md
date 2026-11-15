@@ -5,6 +5,8 @@
 - [x] Add a runnable development service and automated checks.
 - [x] Recover IL2CPP type/method structure and locate bootstrap/login call sites.
 - [x] Map declared RMI message IDs and confirm the native version-2 login call.
+- [x] Recover HTTP encryption profiles and verify them against independent .NET vectors.
+- [x] Implement encrypted version-check HTTP bootstrap for controlled testing.
 - [ ] Identify server configuration and required remote content.
 - [ ] Run a controlled Android test and record startup/network behavior locally.
 - [ ] Document first request bytes, framing, message IDs, and response schema.
