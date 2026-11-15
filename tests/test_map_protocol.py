@@ -20,7 +20,7 @@ public class Common // TypeDefIndex: 3
 {
     public const RmiID IgnoreMe = 12;
 }
-// Namespace: 
+// Namespace: Fixture
 public class BKApi // TypeDefIndex: 4
 {
     // RVA: 0x1234 Offset: 0x1234 VA: 0x1234
