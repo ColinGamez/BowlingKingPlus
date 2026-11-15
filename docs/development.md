@@ -42,4 +42,3 @@ See [research findings](research.md) and the [implementation plan](roadmap.md).
 The [client protocol notes](client-protocol.md) record recovered bootstrap
 endpoints and message IDs. Follow the [research workflow](research-workflow.md)
 to reproduce the local dump, protocol map, and native instruction inspection.
-
